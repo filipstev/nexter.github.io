@@ -1,0 +1,80 @@
+.homes {
+    grid-column: center-start / center-end;
+    margin: 15rem 0;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-gap: 7rem;
+}
+
+.home {
+    background-color: $color-grey-light-1;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); //2 same columns
+    grid-row-gap: 3.5rem;
+
+    &__img {
+        width: 100%;
+        grid-column: 1/ -1;
+        grid-row: 1/2; //puts image below the heart
+        z-index: 1;
+    }
+
+    &__like {
+        grid-row: 1/2; //moves the icon in the image column/row
+        grid-column: 2/3; //same
+        fill: $color-primary;
+        height: 2.5rem;
+        width: 2.5rem;
+        z-index: 2; //to make 100% sure its up there
+        justify-self: end; //puts it on the end
+        margin: 1rem;
+    }
+
+    &__name {
+        grid-row: 1 / 2; //so its ing the bgimage cell
+        grid-column: 1/ -1; //makes it occupy 2 cells
+        z-index: 3;
+        align-self: end;// so it puts it all the way to the bottom
+        justify-self: center; //centers it in those 2 cells
+
+        width: 80%; //so it gets that smaller look
+        font-family: $font-display;
+        font-size: 1.6rem;
+        text-align: center;
+        padding: 1.25rem;
+        background-color: $color-secondary;
+        color: #fff;
+        font-weight: 400;
+        transform: translateY(50%); //so its moved by 50% of its height, which will center it
+    }
+
+    &__location,
+    &__rooms {
+        margin-top: 2.5rem;
+    }
+
+    &__location,
+    &__rooms,
+    &__area,
+    &__price {
+        
+        font-size: 1.5rem;
+        margin-left: 2rem;
+
+        display: flex;
+        align-items: center;
+
+        svg {
+            fill: $color-primary;
+            height: 2rem;
+            width: 2rem;
+            margin-right: 1rem;
+        }
+    }
+
+    &__btn{
+        grid-column: 1/ -1;
+    }
+}

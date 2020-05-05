@@ -1,0 +1,37 @@
+.features {
+    grid-column: center-start/center-end;
+
+    margin: 15rem 0;
+
+    display: grid;
+    //grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr)); //so that it breaks into a 3 by 2 grid and then 1 by 6 grud. column will never be smaller than 25rem 250px
+    grid-gap: 6rem;
+    align-items: start; //the columns with less content  get pushed to the top instead of stretch which looks weird
+}
+
+.feature {
+
+    /*
+    float:left;          //======================
+    width: 33.3333%;     //without css grid
+    margin-bottom:6rem;  //======================
+    */
+
+    display: grid;
+    grid-template-columns: min-content 1fr; // so the icon size can always be the size of the cell. max it could be is 1fr
+    grid-row-gap: 1.5rem; //nice spacing between them
+    grid-column-gap: 2.5rem; //also spacing
+
+    &__icon {
+        fill: $color-primary;
+        width: 4.5rem;
+        height: 4.5rem;
+        grid-row: 1 / span 2; //so the icon takes the bottom row as well, so the content moves to the next free cell and the icon is nicely centered
+        transform: translateY(-1rem); //moving the icon a bit up
+    }
+
+    &__text {
+        font-size: 1.7rem;
+    }
+}
